@@ -690,4 +690,25 @@ export const definitions: DefinitionWithExtend[] = [
             ],
         },
     },
+    {
+   	fingerprint: tuya.fingerprint("TS0601", ["_TZ3210_5rta89nj"]),
+   	model: "ZC-LP01",
+   	vendor: "Moes",
+   	description: "Smart Sliding Window Pusher",
+   	extend: [
+   		tuya.modernExtend.tuyaBase({
+   			onEvent: tuya.onEventSetTime,
+   			dp: true,
+   		}),
+   		tuya.modernExtend.dpBattery({ dp: 4 }),
+   		tuya.modernExtend.dpBinary({
+   			name: "fixed_window_sash",
+   			dp: 112,
+   			type: tuya.dataTypes.enum,
+   			valueOn: ["Up", 1],
+   			valueOff: ["Down", 0],
+   			description: "Button Position",
+   		}),
+   	],
+   },
 ];
